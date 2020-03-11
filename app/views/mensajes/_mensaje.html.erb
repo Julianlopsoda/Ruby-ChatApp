@@ -1,0 +1,31 @@
+
+<% if !current_account || mensaje.account.username != current_account.username %>
+    <div>
+        <p style="margin-bottom: 0"><%= mensaje.account.username %></p>
+        <div style="
+            background-color: #ddd;
+            border: 2px solid #dedede;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            margin-top: 2px;
+            padding:5px;
+            display: inline-block;">
+            <p style="margin-bottom:5px;"><%= mensaje.cuerpo %></p>
+            
+        </div>
+        <span><%=mensaje.created_at.strftime("%l:%M %P")%></span>
+    </div>
+<% else %>
+    <div>
+        <div style="border: 2px solid #ffe4a5;
+            background-color: #ffe4a5;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px 0;
+            display: inline-block;">
+            <p style="margin-bottom:5px;"><%= mensaje.cuerpo %> </p> 
+            
+        </div>
+        <span><%=mensaje.created_at.strftime("%l:%M %P")%></span>
+    </div>
+<% end %>

@@ -1,0 +1,20 @@
+
+<div class="jumbtron mt-5">
+    <div class="well" id="chatbox" style="overflow-y : scroll; height:580px;">
+        <% @mensajes.each do |mensaje| %>
+            <%= render 'mensajes/mensaje', mensaje: mensaje %>
+        <% end %>
+    </div>
+            
+    <%= form_with model: @mensaje do |f| %>
+        <div class="input-group mb-3" style="position:fixed; bottom: 0; width: 70%;">
+            <%= f.text_field :cuerpo, placeholder: "Escribe algo..", class: 'form-control', required:"true" %>
+            <div class="input-group-append">
+            <%= f.submit "Enviar", class: "btn btn-primary", style:"display: inline;" %>
+            </div>
+        </div>
+
+    <% end %>
+
+
+</div>
